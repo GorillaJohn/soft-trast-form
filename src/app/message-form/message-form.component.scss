@@ -1,0 +1,61 @@
+.main {
+    width: 400px;
+    min-height: 370px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: calc(50% - 350px);
+    border: 1px solid #000;
+    border-radius: 7px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+    background-color: #000;
+    color: #fff;
+    padding: 5px 0px 5px 15px;
+    font-weight: normal;
+    max-width: 270px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+}
+
+form {
+    margin-left: 20px;
+
+    :nth-child(5) {
+        textarea {
+            resize: none;
+            min-height: 65px;
+        }
+    }
+    :nth-child(6) {
+        display: grid;
+        grid-template-columns: 110px 110px;
+    }
+
+    :nth-child(7) {
+        grid-template-columns: 110px 180px;
+    }
+}
+
+.form-field {
+    margin-bottom: 15px;
+    display: grid;
+    grid-template-columns: 110px 250px;
+}
+
+input.ng-touched.ng-invalid {
+    border-color: red;
+}
+.validation-error {
+    color: red;
+    font-size: 13px;
+}
+
+button {
+}
+
+label {
+    font-weight: bold;
+}

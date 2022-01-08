@@ -1,0 +1,88 @@
+<div class="main" *ngIf="!formHasBeenSent">
+
+    <h2>Напишите нам</h2>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-field">
+            <label for="username">
+                Ваше имя:
+            </label>
+            <input type="text" formControlName="username" class="username">
+
+            <div></div>
+            <div class="validation-error" *ngIf="_username?.invalid && (_username?.touched || _username?.dirty)">
+                *пожалуйста, укажите Ваше имя
+            </div>
+        </div>
+
+        <div class="form-field">
+            <label for="email">
+                Ваш Email:
+            </label>
+            <input type="text" formControlName="email">
+            <div></div>
+            <div class="validation-error" *ngIf="_email?.invalid && (_email?.touched || _email?.dirty)">
+                *пожалуйста, укажите корректный почтовый адрес
+            </div>
+        </div>
+
+        <div class="form-field">
+            <label for="number">
+                Ваш телефон:
+            </label>
+            <input type="text" formControlName="number" mask="+ 0 (000) 000-00-00">
+            <div></div>
+            <div class="validation-error" *ngIf="_number?.invalid && (_number?.touched || _number?.dirty)">
+                *пожалуйста, укажите корректный номер телефона
+            </div>
+        </div>
+
+        <div class="form-field">
+            <label for="topic">
+                Тема:
+            </label>
+            <select formControlName="topic" size="1">
+                <option value="Техподдержка" selected>Техподдержка</option>
+                <option value="Продажи">Продажи</option>
+                <option value="Другое">Другое</option>
+                <option value="Еще один пункт">Еще один пункт</option>
+            </select>
+            <div></div>
+            <div class="validation-error" *ngIf="_topic?.invalid && (_topic?.touched || _topic?.dirty)">
+                *пожалуйста, выберите тему Вашего сообщения
+            </div>
+        </div>
+
+        <div class="form-field">
+            <label for="message">
+                Ваше сообщение:
+            </label>
+            <textarea type="text" formControlName="message"></textarea>
+            <div></div>
+            <div class="validation-error" *ngIf="_message?.invalid && (_message?.touched || _message?.dirty)">
+                *пожалуйста, напишите, о чем Вы хотите нам сообщить
+            </div>
+        </div>
+
+        <div class="form-field">
+            <label for="captcha">
+                Цифры:
+            </label>
+            <input type="text" formControlName="captcha" mask="00000">
+            <div></div>
+            <div class="validation-error" *ngIf="_captcha?.invalid && (_captcha?.touched || _captcha?.dirty)">
+                *пожалуйста, введите цифры с картинки
+            </div>
+        </div>
+
+        <div class="form-field">
+            <div></div>
+            <button class=" button" type="submit" [disabled]="!reportForm.valid"> Отправить письмо! </button>
+        </div>
+    </form>
+</div>
+
+<div *ngIf="formHasBeenSent">
+    Ваше сообщение было успешно отправлено!
+</div>
